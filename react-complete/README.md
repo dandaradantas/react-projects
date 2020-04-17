@@ -13,3 +13,9 @@ Then it is necessary to import it in the component you are going to use it
 And finally, go to the end of your component file, where your export it, and you can call *Radium* as a function and wrap you component with it. In the example below the component is the *App*. This is called a higher order component (we will lear more about this later). We can use this approach either in components created as functions or created as classes.
 
 ``` export default Radium(App); ```
+
+### Styled Components library
+
+``` npm install --save styled-components ```
+
+Remember that using this package we are going to use regular CSS, this is, instead of *backgroundColor: 'green'* we have to use *background-color: green*, for example.
