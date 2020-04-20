@@ -56,3 +56,28 @@ A Chrome browser tool useful to inspect our code and simulate some data without 
 [Chrome Devtool Debugging](https://developers.google.com/web/tools/chrome-devtools/javascript/)
 
 Error Boundaries: https://reactjs.org/docs/error-boundaries.html
+
+
+## Stateless vs Stateful (presentation vs container component)
+
+- **Stateful (container component)** component is when we are managing state in the component. stateful component does not automatically mean a class component because the functional component can also manage states and be a stateful component.
+
+- **Stateless (presentation component)** is a functional component that does not manage state. 
+
+- The majority components of your application should be *stateless*, this is, functional component that does not manage states. **Why?** having less stateful components is going to make easier to manage your application data flow because you will know better where your states are being modified. And as your application grows you will easily manage it.
+
+
+## Class-based vs Functional Components
+
+|          | class-based   |  Functional |
+|----------|:-------------:|------:|
+|declaration|class XY extends Component| const XY = props => {...} |
+|Acess to state|    Access and manage   |   Access and manage with the useSate() |
+| Lifecycle Hooks | HAS |    HASN'T |
+| Way to access *state* and *props* | via *this* keyword| props as an argument|
+|Examples | this.state.XY & this.props.XY | props.XY|
+|When use it| Use if you need to manage State or access to Lifecycle Hooks and you don't want to use React Hooks | Use in all other Cases|
+
+## Component Lifecycle
+
+- Only available in Class-based Components!
