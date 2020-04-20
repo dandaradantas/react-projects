@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+//the name 'classes' is up to you
+import classes from './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -46,20 +47,8 @@ class App extends Component {
   }
 
   render() {
-    //const style = {
-      // backgroundColor: 'green',
-      // color: 'white',
-      // font: 'inherit',
-      // border: '1px solid blue',
-      // padding: '8px',
-      // cursor: 'pointer',
-      // ':hover': {
-      //   backgroundColor: 'lightgreen',
-      //   color: 'black'
-      // }
-   // }
-
-   let persons = null;
+     let persons = null;
+     let btnClass = '';
 
     if (this.state.showPersons) {
       persons = (
@@ -76,28 +65,24 @@ class App extends Component {
         </div> 
       );
 
-      // style.backgroundColor = 'red';
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
+     btnClass = classes.Red;
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
 
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
 
     return (
-        <div className="App">
+        <div className={classes.App}>
           <h1> Hi, I'm Dandara</h1>
-          <p className={classes.join(' ')}>I'm studying React</p>
+          <p className={assignedClasses.join(' ')}>I'm studying React</p>
           {/* This name 'myAlt' is up to you */}
-          <button className="button"
+          <button className={btnClass}
             onClick={this.togglePersonsHandler}>
               Toggle Persons
           </button>
