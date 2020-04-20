@@ -48,3 +48,11 @@ This configuration is for use *CSS Module* which, in my opinion, is better than 
 More about [how to use CSS Modules with create-react-app](https://medium.com/nulogy/how-to-use-css-modules-with-create-react-app-9e44bec2b5c2)
 
 [CSS Modules GitHub]( https://github.com/css-modules/css-modules)
+
+## React Developer Tools
+
+A Chrome browser tool useful to inspect our code and simulate some data without hardcode anything in our project.
+
+[Chrome Devtool Debugging](https://developers.google.com/web/tools/chrome-devtools/javascript/)
+
+Error Boundaries: https://reactjs.org/docs/error-boundaries.html
