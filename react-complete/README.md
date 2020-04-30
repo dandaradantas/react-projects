@@ -81,3 +81,23 @@ Error Boundaries: https://reactjs.org/docs/error-boundaries.html
 ## Component Lifecycle
 
 - Only available in Class-based Components!
+
+## Hooks
+
+- useEffect() - is used in functional components as lifecycle Hooks. Each component can has more than one useEffect().
+
+- export default **React.memo(cockpit)** - this React.memo is indicated when we have functional component that doesn't need to be executed everytime its parent is updated. In class based component this is the **shouldComponentUpdate** method.
+*OBS:* if your component needs to be updated every time its parent component change, you don't need to use *React.memo* or *shouldComponentUpdate*
+
+## React Fragment
+- React Fragment is used to wrap a JSX code when we don't want to put a div or another HTML element wrapping the code. Instead of React Fragment we can also use a Auxiliary Component (Higher Order Components - HOC) like this
+
+```sh
+const aux = props => props.children;
+
+export default aux;
+```
+
+## Higher Order Components (HOC)
+- What is does? It's essentially wrapper another component. 
+
