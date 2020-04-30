@@ -101,3 +101,17 @@ export default aux;
 ## Higher Order Components (HOC)
 - What is does? It's essentially wrapper another component. 
 
+## setState function
+
+- If you need to set a state that depends on the old state, it is not a good practice just reassigned the value. Instead of this, you must use a function like this
+
+```sh
+this.setState((prevState, props) => {
+    return {
+        persons: persons,
+        changeCounter: prevState.changeCounter + 1
+    };
+});
+``` 
+
+If instead of **prevState.changeCounter** you use **this.state.changeCounter** you don't guarantee that the previous value is correct.
