@@ -115,3 +115,18 @@ this.setState((prevState, props) => {
 ``` 
 
 If instead of **prevState.changeCounter** you use **this.state.changeCounter** you don't guarantee that the previous value is correct.
+
+## PropTypes Package
+It is useful if you are writing a library or if if want to share your component with other people. With this, you will define the props type and if the state changes to a wrong type, an error will appear in the console.
+
+- Example of a PropTypes usage in a Person component
+
+```sh
+Person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
+};
+```
+
