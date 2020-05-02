@@ -98,8 +98,12 @@ const aux = props => props.children;
 export default aux;
 ```
 
+See more information [here](https://reactjs.org/docs/fragments.html)
+
 ## Higher Order Components (HOC)
 - What is does? It's essentially wrapper another component. 
+
+See more information [here](https://reactjs.org/docs/higher-order-components.html)
 
 ## setState function
 
@@ -190,6 +194,7 @@ In this case the context will be used to help the login information pass through
 - In the Person component, one of the consumer we need to wrap the code part that will need the context data
 
 ```html
+<!--Code 1.1-->
 <AuthContext.Consumer>
     {
         (context) => context.authenticated ? <p>Authenticated<p> : <p>Please log in</p>
@@ -200,6 +205,7 @@ In this case the context will be used to help the login information pass through
 - The samething in the Cockpit component 
 
 ```html
+<!--Code 1.2-->
 <AuthContext.Consumer>
                 {(context) => <button onClick={context.login}>Log in</button>}
             </AuthContext.Consumer>
@@ -215,4 +221,21 @@ In this case the context will be used to help the login information pass through
 static contextType = AuthContext;
 ```
 
-This code above allows React to automatic connect this class-based component to your context.
+This code above allows React to automatic connect this class-based component to your context. And this code also gives you a new property the **this.content** property. So, instead of the code 1.1, we can simplify to
+
+```javascript
+{this.context.authenticated ? <p>Authenticated</p> : <p>Please log in</p>}
+```
+
+- For the functional components we can use the **useContext** hook from React. In the function body:
+
+```javascript
+/* The constant name can be whatever you want and as the argument of you useContext function, you will pass your context component */
+const authContext = useContext(AuthContext);
+```
+
+Like this, React is going to make the connection again. And now the *authContext* constant will hold the information from your AuthContext data. Instead of **code 1.2** we can simplify to:
+
+```html
+    <button onClick={authContext.login}>Log in</button>
+```
