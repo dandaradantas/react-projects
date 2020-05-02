@@ -130,3 +130,20 @@ Person.propTypes = {
 };
 ```
 
+## Using Refs
+- References can be added in any component, including your own component. It is a special property detected and understood by React.
+
+- It can be used in some ways. For the older React versions you can use like this
+
+```sh
+componentDidMount() {
+    this.inputElement.focus();
+}
+
+<input ref={(inputEl) => {this.inputElement = inputEl}}
+    type="text" 
+    onChange={this.props.changed} 
+    value={this.props.name}/>     
+
+```
+
