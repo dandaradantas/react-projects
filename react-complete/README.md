@@ -82,6 +82,8 @@ Error Boundaries: https://reactjs.org/docs/error-boundaries.html
 
 - Only available in Class-based Components!
 
+[State & Life cycle](https://reactjs.org/docs/state-and-lifecycle.html)
+
 ## Hooks
 
 - useEffect() - is used in functional components as lifecycle Hooks. Each component can has more than one useEffect().
@@ -120,7 +122,7 @@ this.setState((prevState, props) => {
 
 If instead of **prevState.changeCounter** you use **this.state.changeCounter** you don't guarantee that the previous value is correct.
 
-## PropTypes Package
+## [PropTypes Package](https://reactjs.org/docs/typechecking-with-proptypes.html)
 It is useful if you are writing a library or if if want to share your component with other people. With this, you will define the props type and if the state changes to a wrong type, an error will appear in the console.
 
 - Example of a PropTypes usage in a Person component
@@ -134,7 +136,7 @@ Person.propTypes = {
 };
 ```
 
-## Using Refs
+## Using [Refs](https://reactjs.org/docs/refs-and-the-dom.html)
 - References can be added in any component, including your own component. It is a special property detected and understood by React.
 
 - It can be used in some ways. For the older React versions you can use like this
