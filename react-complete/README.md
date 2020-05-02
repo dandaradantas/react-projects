@@ -1,4 +1,4 @@
-## Concepts Learned
+# Concepts Learned
 
 ### **Radium** package
 
@@ -28,7 +28,7 @@ Running this we will have access to the folder **config**
 
 We did some configurations in the files *webpack.config.dev.js* and *webpack.config.prod.js*. See below that we add *modules* and *localIdentName* to the *options* in the test css part 
 
-```sh
+```javascript
 test: /\.css$/,
 use: [
     require.resolve('style-loader'),
@@ -121,7 +121,7 @@ It is useful if you are writing a library or if if want to share your component 
 
 - Example of a PropTypes usage in a Person component
 
-```sh
+```javascript
 Person.propTypes = {
     click: PropTypes.func,
     name: PropTypes.string,
@@ -135,7 +135,7 @@ Person.propTypes = {
 
 - It can be used in some ways. For the older React versions you can use like this
 
-```sh
+```javascript
 componentDidMount() {
     this.inputElement.focus();
 }
@@ -147,3 +147,72 @@ componentDidMount() {
 
 ```
 
+## React Context
+
+- Used when we don't want to pass our data accross multiple layers of the components, just to get it from component A to component D and component B and C doesn't matter for these data.
+
+- To use this we need to create a context file, for example
+
+```sh
+import React from 'react';
+
+const authContext = React.createContext({
+    authenticated: false, 
+    login: () => {}
+});
+
+export default authContext;
+```
+
+In this case the context will be used to help the login information pass through the components that need to consume and provide the data, and the data will be the *authenticated* and the *login* method.
+
+- In the provider component we will wrap the JSX components that will need the data, in this case below, the components are *Cockpit* and *persons*
+
+```javascript
+<AuthContext.Provider 
+    value={{
+    authenticated: this.state.authenticated, 
+    login: this.loginHandler
+}}>
+    {this.state.showCockpit ? (
+    <Cockpit 
+    title={this.props.appTitle}
+    showPersons={this.state.showPersons}
+    personsLength={this.state.persons.length} 
+    clicked={this.togglePersonsHandler}
+    />
+    ) : null}
+    
+    {persons} 
+</AuthContext.Provider>
+```
+
+- In the Person component, one of the consumer we need to wrap the code part that will need the context data
+
+```html
+<AuthContext.Consumer>
+    {
+        (context) => context.authenticated ? <p>Authenticated<p> : <p>Please log in</p>
+    }
+</AuthContext.Consumer>
+```
+
+- The samething in the Cockpit component 
+
+```html
+<AuthContext.Consumer>
+                {(context) => <button onClick={context.login}>Log in</button>}
+            </AuthContext.Consumer>
+```
+- In **class based components**, like *Person*, it has an alternative to better format the Provider. Let's see the steps:
+
+1 - We will use the method *componentDidMount* because here you also need the authentication status bacause you maybe sending an HTTP request that needs the userID;
+
+2 - We need to add a *static* variable with the name  **contextType** written exactly like this and need to be a static property. *Static* property means it can be accessed from outside without need to instantiate an object based on this class first and React will access contextType for you.
+
+```javascript
+// AuthContext is the name of your context Component
+static contextType = AuthContext;
+```
+
+This code above allows React to automatic connect this class-based component to your context.
