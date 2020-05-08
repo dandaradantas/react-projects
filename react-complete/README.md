@@ -22,6 +22,9 @@ Remember that using this package we are going to use regular CSS, this is, inste
 
 ### Command to access configurations that are under the hood in the project
 
+#### To Enable de CSS Modules in older React versions
+- For the new ones, we just need to create our CSS files with the pattern **[name].module.css**
+
 ```npm run eject```
 
 Running this we will have access to the folder **config**
@@ -124,6 +127,10 @@ If instead of **prevState.changeCounter** you use **this.state.changeCounter** y
 
 ## [PropTypes Package](https://reactjs.org/docs/typechecking-with-proptypes.html)
 It is useful if you are writing a library or if if want to share your component with other people. With this, you will define the props type and if the state changes to a wrong type, an error will appear in the console.
+
+```
+npm install --save prop-typer
+```
 
 - Example of a PropTypes usage in a Person component
 
@@ -241,3 +248,7 @@ Like this, React is going to make the connection again. And now the *authContext
 ```html
     <button onClick={authContext.login}>Log in</button>
 ```
+
+## Basic Notes
+
+- We have to import React when we need to use JSX codes;
