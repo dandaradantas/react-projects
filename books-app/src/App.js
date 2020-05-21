@@ -29,13 +29,7 @@ class App extends Component {
     this.setState({searchValue: event.target.value, submitted: false, foundBooks: []});
   }
 
-  render () {
-    console.log('x');
-    setTimeout(() => {
-        console.log('y');
-    }, 1);
-    console.log('z');
-    
+  render () {    
     return (
       <div className="App">
         <header className="App-header">
